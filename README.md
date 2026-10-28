@@ -1,4 +1,4 @@
-# Sistema de Gestão de Academia
+# Hive Iron
 
 Projeto da disciplina **Análise e Projeto de Sistemas** (professor Anthony Irlan Marques Luz).
 
