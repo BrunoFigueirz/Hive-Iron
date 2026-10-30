@@ -1,6 +1,7 @@
-# Hive Iron
-
-Projeto da disciplina **Análise e Projeto de Sistemas** (professor Anthony Irlan Marques Luz).
+<h1>
+  <img src="https://i.imgur.com/00vzWQG.png" alt="Logo Hive Iron" width="80" align="center">
+  Hive Iron - Bom não, mel
+</h1>
 
 ## Tema
 
