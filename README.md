@@ -40,6 +40,7 @@ Projeto-Sistema-Gestao-Academia/
     ├── app.py                  inicia a aplicação
     ├── rotas/                  rotas (blueprints) por área
     ├── dados/                  acesso ao banco de dados
+    ├── servicos/               regras de negocio
     ├── templates/              páginas HTML
     └── static/                 CSS e JavaScript
 ```
