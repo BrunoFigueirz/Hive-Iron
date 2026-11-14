@@ -4,6 +4,9 @@ from rotas.public_views import public_bp
 app = Flask(__name__)
 app.register_blueprint(public_bp)
 
+from dados.academia_bd import criar_tabelas
+
+criar_tabelas()
 
 if __name__ == '__main__':
     app.run(host='localhost', debug=True)
