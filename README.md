@@ -20,7 +20,7 @@ Sistema web para gerenciar uma academia: alunos, funcionários, planos, matrícu
 
 - Python 3 e Flask
 - SQLite (banco local, criado pelo próprio sistema)
-- HTML, CSS e JavaScript nas telas
+- next.js 
 - Git e GitHub (issues e GitHub Projects como Product Backlog)
 
 
