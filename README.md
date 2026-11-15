@@ -29,20 +29,37 @@ Sistema web para gerenciar uma academia: alunos, funcionários, planos, matrícu
 
 ```
 Projeto-Sistema-Gestao-Academia/
-├── README.md
-├── requirements.txt
-├── .github/ISSUE_TEMPLATE/     template de história de usuário
+├── README.md                    
+├── requirements.txt             (Flask + flask-cors)
+├── .github/ISSUE_TEMPLATE/
 ├── docs/
 │   ├── historias-de-usuario.md
 │   ├── casos-de-uso.md
-│   └── diagramas/              diagramas (.png e arquivo-fonte)
-└── Sistema-Academia/
-    ├── app.py                  inicia a aplicação
-    ├── rotas/                  rotas (blueprints) por área
-    ├── dados/                  acesso ao banco de dados
-    ├── servicos/               regras de negocio
-    ├── templates/              páginas HTML
-    └── static/                 CSS e JavaScript
+│   ├── contrato-api.md          (novo: o que o front espera do Flask)
+│   ├── diagramas/
+│   └── prototipos/              
+├── Sistema-Academia/            
+│   ├── app.py
+│   ├── rotas/
+│   ├── dados/
+│   └── servicos/
+└── frontend/                    novo: Next.js
+    ├── package.json
+    ├── jsconfig.json
+    ├── .env.example
+    ├── app/
+    │   ├── layout.js
+    │   ├── globals.css
+    │   ├── login/page.js           
+    │   └── (app)/
+    │       ├── layout.js            barra do topo + proteção de rota
+    │       ├── page.js              painel por perfil
+    │       └── alunos/
+    │           ├── page.js         
+    │           ├── novo/page.js     
+    │           └── [id]/editar/page.js
+    ├── components/                  
+    └── lib/                         contrato com o Flask
 ```
 
 ## Instruções de Execução
