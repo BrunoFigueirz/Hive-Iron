@@ -1,0 +1,104 @@
+/* Hive Iron — estilo do protótipo do Canva: preto, neon, cartões com borda branca e botões em pílula. */
+:root{
+  --preto:#000; --superficie:#121212; --branco:#fff;
+  --neon:#F3EF00;      /* botões, destaques, números */
+  --ouro:#F7B500;      /* marca (logo) */
+  --suave:#b8b8b8; --linha:#3a3a3a; --erro:#ff6b5e; --ok:#58d68d;
+  --raio:14px;
+  --fonte-titulo:"Syne","Arial Black",system-ui,sans-serif;
+  --fonte-rotulo:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --fonte-corpo:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0;background:var(--preto);color:var(--branco);font:400 1rem/1.5 var(--fonte-corpo)}
+h1,h2{font-family:var(--fonte-titulo);font-weight:800;text-transform:uppercase;line-height:1.1;margin:.4rem 0 .6rem}
+h1{font-size:clamp(1.7rem,4vw,2.6rem)}
+h2{font-size:1.3rem}
+a{color:inherit}
+.suave{color:var(--suave)}
+.so-leitor{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:3px solid var(--neon);outline-offset:3px}
+
+/* Barra do topo (como no protótipo) */
+.topo{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;padding:.9rem clamp(1rem,4vw,3rem);border-bottom:3px solid var(--branco)}
+.marca{display:flex;align-items:center;gap:.6rem;text-decoration:none;font:800 1.3rem var(--fonte-titulo);text-transform:uppercase}
+.topo-nav{display:flex;gap:1.6rem;flex:1}
+.topo-nav a,.pilula,.tag,.kpi-rotulo,th,.link-editar{font-family:var(--fonte-rotulo);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.topo-nav a{text-decoration:none;font-size:1.1rem;padding:.2rem 0;border-bottom:3px solid transparent}
+.topo-nav a:hover{border-bottom-color:var(--linha)}
+.topo-nav a[aria-current="page"]{border-bottom-color:var(--neon)}
+.topo-usuario{display:flex;align-items:center;gap:1rem}
+.topo-usuario span{display:flex;flex-direction:column;text-align:right;line-height:1.2}
+.topo-usuario small{color:var(--suave)}
+
+.conteudo{padding:2rem clamp(1rem,4vw,3rem) 4rem;max-width:1040px}
+.cabecalho{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.subtitulo{font:700 1.4rem var(--fonte-rotulo);text-transform:uppercase;color:var(--neon);margin:0 0 1.5rem}
+
+/* Pílulas */
+.pilula{display:inline-block;border-radius:999px;border:2px solid var(--branco);padding:.5rem 1.4rem;font-size:1.05rem;text-decoration:none;cursor:pointer;background:transparent;color:var(--branco)}
+.pilula.neon{background:var(--neon);border-color:var(--neon);color:#000}
+.pilula.neon:hover{background:#fff700;border-color:#fff700}
+.pilula.contorno:hover{border-color:var(--neon);color:var(--neon)}
+.pilula.grande{padding:.7rem 2rem;font-size:1.2rem}
+.pilula:disabled{opacity:.6;cursor:wait}
+.tag{display:inline-block;border:1px solid var(--neon);color:var(--neon);border-radius:999px;padding:.15rem .9rem;font-size:.95rem}
+
+/* Cartões */
+.cartao{border:2px solid var(--branco);border-radius:var(--raio);padding:1.3rem;background:var(--preto)}
+.estreito{max-width:460px}
+.vazio{text-align:center;padding:2.5rem 1.3rem}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin-bottom:2rem;max-width:640px}
+.kpi{display:flex;flex-direction:column;gap:.3rem}
+.kpi-rotulo{font-size:1rem}
+.kpi-valor{font:800 2.6rem/1 var(--fonte-titulo);color:var(--neon)}
+
+/* Avisos */
+.aviso{padding:.8rem 1rem;margin-bottom:1rem;border:1px solid var(--ok);border-radius:10px;background:var(--superficie)}
+.aviso.erro{border-color:var(--erro)}
+
+/* Formulários */
+.formulario{max-width:640px}
+.campo{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1.1rem}
+.campo label{font:700 1rem var(--fonte-rotulo);text-transform:uppercase;letter-spacing:.04em}
+.campo small{color:var(--suave);text-transform:none;letter-spacing:0;font-family:var(--fonte-corpo);font-weight:400}
+input[type=text],input[type=email],input[type=password],input[type=tel],input[type=search],select{
+  width:100%;background:var(--superficie);color:var(--branco);border:2px solid var(--linha);border-radius:10px;padding:.7rem .85rem;font:inherit}
+input:focus,select:focus{border-color:var(--neon);outline:none}
+.campo.invalido input,.campo.invalido select{border-color:var(--erro)}
+.erro-campo{color:var(--erro);font-size:.9rem}
+.linha{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.check{display:flex;align-items:center;gap:.7rem;margin-bottom:1.1rem}
+.check input{width:22px;height:22px;accent-color:var(--neon)}
+.bloco{border:1px solid var(--linha);border-radius:10px;padding:1rem 1rem 0;margin-bottom:1.1rem}
+.acoes{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
+.busca{max-width:420px}
+
+/* Tabela */
+.tabela-rolavel{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:.8rem .6rem;border-bottom:1px solid var(--linha);white-space:nowrap}
+th{color:var(--suave);font-size:.95rem}
+tbody tr:last-child td{border-bottom:0}
+.selo{display:inline-block;border:1px solid var(--neon);color:var(--neon);border-radius:999px;padding:0 .7rem;font-size:.85rem}
+.link-editar{color:var(--neon);text-decoration:none}
+.link-editar:hover{text-decoration:underline}
+
+/* Login: painel branco com a marca (como a faixa do protótipo) + cartão de entrada */
+.login{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.login-marca{background:var(--branco);color:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem;
+  clip-path:polygon(0 0,100% 0,88% 100%,0 100%)}
+.login-nome{font:800 clamp(2.4rem,6vw,4.2rem)/1 var(--fonte-titulo);text-transform:uppercase;margin:.5rem 0 0}
+.login-lema{font:600 1.2rem var(--fonte-corpo);text-transform:uppercase;margin:.4rem 0 0}
+.login-lado{display:flex;align-items:center;justify-content:center;padding:2rem}
+.login-cartao{width:100%;max-width:420px}
+
+@media (max-width:760px){
+  .topo{gap:1rem}
+  .topo-nav{order:3;flex-basis:100%}
+  .login{grid-template-columns:1fr}
+  .login-marca{clip-path:none;padding:2rem}
+  .linha{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
