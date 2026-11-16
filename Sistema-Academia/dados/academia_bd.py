@@ -31,16 +31,17 @@ def criar_tabelas():
 
         conexao.execute("""
         create table if not exists alunos (
-        id_aluno integer primary key,
+        id_usuario integer primary key,
         ativo integer not null default 1 check(ativo in(0, 1)),
-        foreign key(id_aluno) references usuarios(id_usuario)
+        estudante integer not null default 0 check(estudante in(0, 1)),
+        foreign key(id_usuario) references usuarios(id_usuario)
         );
         """)
         conexao.execute("""
         create table if not exists funcionarios (
-        id_funcionario integer primary key,
+        id_usuario integer primary key,
         ativo integer not null default 1 check(ativo in(0, 1)),
-        foreign key(id_funcionario) references usuarios(id_usuario)
+        foreign key(id_usuario) references usuarios(id_usuario)
         );
         """)
         conexao.execute("""
@@ -48,13 +49,74 @@ def criar_tabelas():
         id_plano integer primary key autoincrement,
         nome text not null,
         descricao text,
-        tipo text not null check(tipo in('diario', 'mensal', anual)),
-        preco integer not null check(preco > 0),
+        tipo text not null check(tipo in('diario', 'mensal', 'anual')),
+        preco_centavos integer not null check(preco_centavos_cn > 0),
         ativo integer not null default 1 check(ativo in(0, 1))
         );
         """)
+        conexao.execute("""create table if not exists matriculas(
+        id_matricula integer primary key autoincrement,
+        id_aluno integer not null,
+        id_plano integer not null,
+        data_inicio text not null,
+        data_fim text,
+        status text not null check(status in('ativa', 'suspensa', 'pendente', 'encerrada')),
+        motivo_suspensao text,
+        foreign key(id_aluno) references alunos(id_usuario),
+        foreign key(id_plano) references planos(id_plano)
+        );""")
+        conexao.execute("""
+        create table if not exists treinos(
+        id_treino integer primary key autoincrement,
+        id_aluno integer not null,
+        foreign key(id_aluno) references alunos(id_usuario)
+        );""")
+        conexao.execute("""create table if not exists periodos_treino(
+        id_periodo integer primary key autoincrement,
+        id_treino integer not null,
+        data_inicio text not null,
+        data_fim text,
+        foreign key(id_treino) references treinos(id_treino)
+        );""")
+        conexao.execute("""create table if not exists exercicios(
+        id_exercicio integer primary key autoincrement,
+        nome text not null,
+        descricao text,
+        ativo integer not null default 1 check(ativo in(0, 1))
+        );""")
+        conexao.execute("""create table if not exists treino_exercicio(
+        id_treino_exercicio integer primary key autoincrement,
+        id_treino integer not null,
+        id_exercicio integer not null,
+        series integer not null check(series > 0),
+        repeticoes integer not null check(repeticoes > 0),
+        carga real check(carga is null or carga >= 0),
+        ordem integer not null check(ordem > 0),
+        observacao text,
+        foreign key(id_treino) references treinos(id_treino),
+        foreign key(id_exercicio) references exercicios(id_exercicio),
+        unique(id_treino, ordem)
+        );""")
+        conexao.execute("""create table if not exists pagamentos(
+        id_pagamento integer primary key autoincrement,
+        id_matricula integer not null,
+        valor_centavos integer not null check(valor_centavos > 0),
+        desconto_centavos integer not null default 0 check(desconto_centavos >= 0),
+        data_venc text not null,
+        data_pagamento text,
+        status text not null check(status in('pago_em_dia', 'pago_atrasado', 'pendente')),
+        foreign key(id_matricula) references matriculas(id_matricula)
+        );""")
+        conexao.execute("""create table if not exists frequencias(
+        id_frequencia integer primary key autoincrement,
+        id_matricula integer not null,
+        data_hora text not null,
+        foreign key(id_matricula) references matriculas(id_matricula)
+        );""")
         conexao.commit()
-
+    except  Exception:
+        conexao.rollback()
+        raise
     finally:
         conexao.close()
 
