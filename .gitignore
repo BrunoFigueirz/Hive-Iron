@@ -5,3 +5,7 @@ __pycache__/
 .vscode
 
 academia.db
+
+node_modules
+.next
+.env.local
