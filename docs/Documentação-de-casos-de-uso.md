@@ -7,7 +7,7 @@ Modelo de especificação: *Engenharia de Software Moderna*. Casos de uso inclu�
 
 ## 1. Visão geral do sistema
 
-O Sistema de Gestão de Academia é uma aplicação web com banco de dados local SQLite que organiza alunos, funcionários, planos, matrículas, pagamentos, treinos e frequência de uma academia. O funcionário cadastra alunos, gerencia o ciclo de vida das matrículas (pendente, ativa, suspensa e encerrada), registra pagamentos do plano mensal (R$ 100, ou R$ 95 para estudantes) e da diária (R$ 35) e registra a presença. O administrador, além de tudo o que o funcionário faz, gerencia funcionários e planos e consulta relatórios gerenciais. O aluno acessa o sistema para consultar seu plano, seus pagamentos e sua frequência. Todo acesso exige autenticação e é limitado ao perfil do usuário.
+O Sistema de Gestão de Academia é uma aplicação web com banco de dados local SQLite que organiza alunos, funcionários, planos, matrículas, pagamentos, treinos e frequência de uma academia. O funcionário cadastra alunos, gerencia o ciclo de vida das matrículas (pendente, ativa, suspensa e encerrada), registra pagamentos do plano mensal (R$ 100, ou R$ 95 para estudantes) e da diária (R$ 35) e registra a presença. O administrador, além de tudo o que o funcionário faz, gerencia funcionários e planos e consulta relatórios gerenciais. O aluno acessa o sistema para consultar seu plano, seus pagamentos e sua frequência. Todo acesso exige autenticação e é limitado ao perfil do usuáriO.
 
 ---
 
